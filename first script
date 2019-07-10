@@ -1,0 +1,22 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import os
+import unittest
+
+class Testgoogle(unittest.TestCase):
+  def setUp(self):
+    dir = os.path.dirname(__file__)
+    chrome_driver_path = dir + '\chromedriver.exe'
+    self.driver = webdriver.Chrome(chrome_driver_path)
+  def test_search(self):
+    self.driver = driver
+    driver.get('https://www.google.com')
+    driver.maximize_window()
+    elem = driver.find_element_by_id('q')
+    elem.send_keys('London')
+    elem.send_keys(Keys.RETURN)
+  def tearDown(self):
+    self.driver.close()    
+
+if __name__ == '__main__':
+  unittest.main()
